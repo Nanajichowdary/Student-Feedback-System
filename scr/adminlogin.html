@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <style>/* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Background & Main Wrapper */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+        }
+        
+        /* Login Container */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .login-form {
+            background-color: #ffffff;
+            padding: 2rem 3rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            color: #333;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+        
+        /* Animate login container */
+        .login-form:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Form Title */
+        .login-form h1 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .login-form p {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+        
+        /* Input Group */
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            margin: 1rem 0;
+            text-align: left;
+        }
+        
+        .input-group label {
+            font-size: 0.9rem;
+            margin-bottom: 0.4rem;
+        }
+        
+        .input-group input {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border 0.3s ease;
+        }
+        
+        .input-group input:focus {
+            border-color: #0073e6;
+            outline: none;
+        }
+        
+        /* Remember Me Section */
+        .remember-me {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        
+        .remember-me input {
+            margin-right: 5px;
+        }
+        
+        /* Login Button */
+        .login-btn {
+            background-color: #0073e6;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+        
+        .login-btn:hover {
+            background-color: #005bb5;
+        }
+        
+        /* Forgot Password Section */
+        .forgot-password {
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+        
+        .forgot-password a {
+            color: #0073e6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .forgot-password a:hover {
+            color: #005bb5;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .login-form {
+                width: 90%;
+            }
+        }
+        </style>
+    <!-- Main Wrapper -->
+    <div class="login-container">
+        <div class="login-form">
+            <h1>Admin Login</h1>
+            <p>Please enter your login credentials to access the portal</p>
+
+            <!-- Login Form -->
+            <form>
+                <div class="input-group">
+                    <label for="email">Username/Email</label>
+                    <input type="email" id="email" placeholder="Enter your username or email" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+
+                <div class="remember-me">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Remember Me</label>
+                </div>
+
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+
+            <p class="forgot-password"><a href="#">Forgot Password?</a></p>
+        </div>
+    </div>
+</body>
+
+</html>

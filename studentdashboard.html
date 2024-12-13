@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Feedback Dashboard</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Page Styling */
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+
+    .form-container,
+    .student-profile {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+
+    select,
+    input {
+      padding: 8px;
+      font-size: 14px;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 10px 15px;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .profile-display {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 4px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Student Feedback Dashboard</h1>
+    </header>
+    
+    <div class="form-container">
+      <label for="year">Select Year:</label>
+      <select id="year" onchange="updateCourses()">
+        <option value="">--Select Year--</option>
+        <option value="1">1st Year</option>
+        <option value="2">2nd Year</option>
+        <option value="3">3rd Year</option>
+        <option value="4">4th Year</option>
+      </select>
+
+      <label for="semester">Select Semester:</label>
+      <select id="semester" onchange="updateCourses()">
+        <option value="">--Select Semester--</option>
+        <option value="1">Semester-1</option>
+        <option value="2">Semester-2</option>
+      </select>
+
+      <label for="branch">Select Branch:</label>
+      <select id="branch">
+        <option value="">--Select Branch--</option>
+        <option value="CSE">CSE</option>
+        <option value="ECE">ECE</option>
+        <option value="Civil">Civil</option>
+        <option value="Mech">Mech</option>
+        <option value="AIML">AIML</option>
+        <option value="CSD">CSD</option>
+        <option value="CSM">CSM</option>
+        <option value="CSER">CSER</option>
+        <option value="IT">IT</option>
+      </select>
+
+      <label for="course">Courses:</label>
+      <select id="course">
+        <option value="">--Select Courses--</option>
+      </select>
+    </div>
+
+    <div class="student-profile">
+      <h3>Student Profile</h3>
+      <label for="student-name">Name:</label>
+      <input type="text" id="student-name" placeholder="Enter your name">
+
+      <label for="student-id">Student ID:</label>
+      <input type="text" id="student-id" placeholder="Enter your student ID">
+
+      <button onclick="saveProfile()">Save Profile</button>
+      <div class="profile-display" id="profile-display"></div>
+    </div>
+  </div>
+
+  <script>
+    // Function to dynamically populate the courses dropdown based on year/semester selection
+    function updateCourses() {
+      const year = document.getElementById("year").value;
+      const semester = document.getElementById("semester").value;
+      const courseDropdown = document.getElementById("course");
+
+      // Clear previous options
+      courseDropdown.innerHTML = "<option value=''>--Select Courses--</option>";
+
+      const courses = {
+        "1": {
+          "1": ["PPSC", "M1", "App Physics", "Communication Skills"],
+          "2": ["EM2", "App Chem", "Intro AI", "DS", "OOPs"]
+        },
+        "2": {
+          "1": ["M3", "Python", "DBMS", "COA"],
+          "2": ["P&S", "Intro ML", "Flat", "WT", "SE"]
+        },
+        "3": {
+          "1": ["BDA", "CN", "OS", "MPA", "CC"],
+          "2": ["DL", "CNS", "CC", "DAA", "NLP"]
+        },
+        "4": {
+          "1": ["MEFA", "CRT", "CP", "PP"],
+          "2": ["APP", "AHS", "AGA", "PPK"]
+        }
+      };
+
+      if (year && semester && courses[year] && courses[year][semester]) {
+        courses[year][semester].forEach(course => {
+          const option = document.createElement("option");
+          option.value = course;
+          option.textContent = course;
+          courseDropdown.appendChild(option);
+        });
+      }
+    }
+
+    // Function to handle the saving of a simple student profile
+    function saveProfile() {
+      const name = document.getElementById("student-name").value;
+      const id = document.getElementById("student-id").value;
+
+      if (name.trim() === "" || id.trim() === "") {
+        alert("Please enter both name and student ID.");
+        return;
+      }
+
+      const profileDisplay = document.getElementById("profile-display");
+      profileDisplay.innerHTML = `<p><strong>Name:</strong> ${name}</p><p><strong>Student ID:</strong> ${id}</p>`;
+    }
+  </script>
+</body>
+</html>

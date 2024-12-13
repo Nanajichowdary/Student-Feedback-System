@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+
+        header {
+            background-color: #4c44df;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome-section {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .welcome-section h2 {
+            font-size: 2rem;
+            color: #4c44df;
+        }
+
+        .welcome-section p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: #e6f7ff;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h2 {
+            color: #0073e6;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .card button {
+            background-color: #0073e6;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .card button:hover {
+            background-color: #005bb5;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #4c44df;
+            color: white;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                padding: 1rem;
+            }
+
+            .card h2 {
+                font-size: 1.3rem;
+            }
+
+            .card p {
+                font-size: 0.9rem;
+            }
+
+            .card button {
+                font-size: 0.9rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Teacher Dashboard</h1>
+    </header>
+
+    <div class="container">
+        <section class="welcome-section">
+            <h2>Welcome, [Teacher Name]</h2>
+            <p>Your personalized dashboard to manage classes, review feedback, and communicate with students.</p>
+        </section>
+
+        <div class="grid">
+            <div class="card">
+                <h2>Class Management</h2>
+                <p>Create, edit, and manage your classes and assignments seamlessly.</p>
+                <button onclick="redirectTo('class-management.html')">Manage Classes</button>
+            </div>
+
+            <div class="card">
+                <h2>Student Feedback</h2>
+                <p>Review feedback from students to improve your teaching methods and course materials.</p>
+                <button onclick="redirectTo('feedback.html')">View Feedback</button>
+            </div>
+
+            <div class="card">
+                <h2>Attendance Tracker</h2>
+                <p>Track student attendance and generate attendance reports with ease.</p>
+                <button onclick="redirectTo('attendance.html')">Track Attendance</button>
+            </div>
+
+            <div class="card">
+                <h2>Communication Hub</h2>
+                <p>Send announcements, communicate with students, and collaborate with other teachers.</p>
+                <button onclick="redirectTo('communication-hub.html')">Go to Hub</button>
+            </div>
+
+            <div class="card">
+                <h2>Resource Library</h2>
+                <p>Access teaching resources, upload materials, and share documents with your students.</p>
+                <button onclick="redirectTo('resource-library.html')">View Resources</button>
+            </div>
+
+            <div class="card">
+                <h2>Profile Settings</h2>
+                <p>Update your personal details, change your password, and manage notification preferences.</p>
+                <button onclick="redirectTo('profile-settings.html')">Go to Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 NRIIT. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function redirectTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>
+

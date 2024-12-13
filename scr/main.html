@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NRIIT Student LMS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Student Feedback Portal</h1>
+    
+    </header>
+
+    <div class="container">
+        <section class="description">
+            <h2>Welcome to Feedback Portal</h2>
+            <p>
+                Collecting feedback from students is crucial for improving teaching quality. This tool allows students to provide 
+                anonymous feedback on courses and instructors. Dashboards summarize feedback trends, identify strengths and 
+                improvement areas, and ensure actionable insights.
+            </p>
+        </section>
+
+        <section class="role-section">
+            <div class="role-card">
+                <img src="https://img.icons8.com/ios-filled/100/0073e6/student-male.png" alt="Student Icon">
+                <h2>Student</h2>
+                <!-- <p>Provide feedback on courses and instructors anonymously. Your feedback helps improve teaching quality.</p> -->
+                <button onclick="window.location.href='./studentlogin.html'">Access Student Portal</button>
+            </div>
+
+            <div class="role-card">
+                <img src="https://img.icons8.com/ios-filled/100/0073e6/teacher.png" alt="Teacher Icon">
+                <h2>Teacher</h2>
+                <!-- <p>View feedback trends and metrics to identify strengths and areas for improvement in teaching.</p> -->
+                <button onclick="window.location.href='./teacherlogin.html'">Access Teacher Portal</button>
+            </div>
+
+            <div class="role-card">
+                <img src="https://img.icons8.com/ios-filled/100/0073e6/admin-settings-male.png" alt="Admin Icon">
+                <h2>Admin</h2>
+                <!-- <p>Manage feedback forms, analyze trends, and ensure secure data handling and privacy.</p> -->
+                <button onclick="window.location.href='./adminlogin.html'">Access Admin Portal</button>
+            </div>
+        
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
