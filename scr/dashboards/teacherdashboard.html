@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Dashboard</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-box {
+      margin-bottom: 20px;
+    }
+
+    .form-box label {
+      font-size: 16px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .form-box select {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Teacher Dashboard</h1>
+
+    <div class="form-box">
+      <label for="branch">Select Branch:</label>
+      <select id="branch" onchange="updateCourses()">
+        <option value="">--Select Branch--</option>
+        <option value="CSE">Computer Science</option>
+        <option value="ME">Mechanical Engineering</option>
+        <option value="CE">Civil Engineering</option>
+        <option value="EE">Electrical Engineering</option>
+        <option value="ECE">Electronics and Communication</option>
+        <option value="CH">Chemical Engineering</option>
+      </select>
+    </div>
+
+    <div class="form-box">
+      <label for="course">Select Course:</label>
+      <select id="course" onchange="redirectToFeedbackPage()">
+        <option value="">--Select Course--</option>
+      </select>
+    </div>
+  </div>
+
+  <script>
+    const coursesByBranch = {
+      CSE: [
+        { name: "Data Structures", url: "verbal_feedback.html?course=Data_Structures" },
+        { name: "Operating Systems", url: "verbal_feedback.html?course=Operating_Systems" },
+        { name: "Algorithms", url: "verbal_feedback.html?course=Algorithms" }
+      ],
+      ME: [
+        { name: "Thermodynamics", url: "verbal_feedback.html?course=Thermodynamics" },
+        { name: "Fluid Mechanics", url: "verbal_feedback.html?course=Fluid_Mechanics" },
+        { name: "Machine Design", url: "verbal_feedback.html?course=Machine_Design" }
+      ],
+      CE: [
+        { name: "Structural Analysis", url: "verbal_feedback.html?course=Structural_Analysis" },
+        { name: "Surveying", url: "verbal_feedback.html?course=Surveying" },
+        { name: "Concrete Technology", url: "verbal_feedback.html?course=Concrete_Technology" }
+      ],
+      EE: [
+        { name: "Circuit Analysis", url: "verbal_feedback.html?course=Circuit_Analysis" },
+        { name: "Power Systems", url: "verbal_feedback.html?course=Power_Systems" },
+        { name: "Control Systems", url: "verbal_feedback.html?course=Control_Systems" }
+      ],
+      ECE: [
+        { name: "Digital Electronics", url: "verbal_feedback.html?course=Digital_Electronics" },
+        { name: "Communication Systems", url: "verbal_feedback.html?course=Communication_Systems" },
+        { name: "Microprocessors", url: "verbal_feedback.html?course=Microprocessors" }
+      ],
+      CH: [
+        { name: "Process Dynamics", url: "verbal_feedback.html?course=Process_Dynamics" },
+        { name: "Chemical Reaction Engineering", url: "verbal_feedback.html?course=Chemical_Reaction_Engineering" },
+        { name: "Heat Transfer", url: "verbal_feedback.html?course=Heat_Transfer" }
+      ]
+    };
+
+    function updateCourses() {
+      const branch = document.getElementById("branch").value;
+      const courseDropdown = document.getElementById("course");
+
+      // Clear previous options
+      courseDropdown.innerHTML = "<option value=''>--Select Course--</option>";
+
+      if (branch && coursesByBranch[branch]) {
+        coursesByBranch[branch].forEach(course => {
+          const option = document.createElement("option");
+          option.value = course.url;
+          option.textContent = course.name;
+          courseDropdown.appendChild(option);
+        });
+      }
+    }
+
+    function redirectToFeedbackPage() {
+      const selectedCourse = document.getElementById("course").value;
+      if (selectedCourse) {
+        window.location.href = selectedCourse;
+      }
+    }
+  </script>
+</body>
+</html>
